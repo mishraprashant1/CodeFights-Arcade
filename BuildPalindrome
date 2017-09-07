@@ -1,0 +1,33 @@
+/*
+
+Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+
+Example
+
+For st = "abcdc", the output should be
+buildPalindrome(st) = "abcdcba".
+
+*/
+
+String buildPalindrome(String st) {
+    String res="";
+    String temp="";
+    if(checkPalindrome(st))
+        return st;
+    for(int i=0,j=st.length()-1;i<st.length();i++){
+        if(!checkPalindrome(st+temp)){
+            temp=st.charAt(i)+temp;
+        }
+        else{
+            return st+temp;
+        }
+    }
+    return st+temp;
+}
+boolean checkPalindrome(String str){
+    for(int i=0,j=str.length()-1;i<=j;i++,j--){
+        if(str.charAt(i)!=str.charAt(j))
+            return false;
+    }
+    return true;
+}
