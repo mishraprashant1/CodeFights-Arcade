@@ -24,6 +24,10 @@ There is no first number.
 */
 
 boolean isIPv4Address(String inputString) {
+    return Pattern.matches("([1][0-9][0-9][.]|[2][5][0-5][.]|[2][0-4][0-9][.]|[0-9][0-9][.]|[0-9][.]){3}([1][0-9][0-9]|[2][5][0-5]|[2][0-4][0-9]|[0-9][0-9]|[0-9])",inputString);
+}
+
+boolean isIPv4Address(String inputString) {
     StringTokenizer st=new StringTokenizer(inputString,".");
     int temp=0;
     int count=0;
